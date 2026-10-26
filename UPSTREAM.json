@@ -149,6 +149,7 @@
   "adaptations": [
     "Preserved destination LICENSE; upstream MIT license stored as LICENSE.upstream.",
     "Original upstream README stored as README.upstream.md; root README replaced with project placeholder.",
-    "Upstream workflows archived unchanged because they assume upstream runners, accounts and release configuration."
+    "Upstream workflows archived unchanged because they assume upstream runners, accounts and release configuration.",
+    "Added root .gitmodules mappings for the preserved nested reference gitlinks so standard Git checkout and credential cleanup work; automatic submodule updates remain disabled."
   ]
 }
