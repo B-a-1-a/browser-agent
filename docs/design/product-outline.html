@@ -7,10 +7,11 @@
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; background: #fff; color: #242424; font: 16px/1.6 Arial, Helvetica, sans-serif; }
-    .document { width: min(1920px, 100%); margin: 0 auto; padding: 48px clamp(24px, 4vw, 80px); display: grid; grid-template-columns: minmax(380px, .78fr) minmax(0, 1.35fr); align-items: start; gap: clamp(32px, 4vw, 80px); }
+    .document { width: min(1920px, 100%); margin: 0 auto; padding: 48px clamp(24px, 4vw, 80px); }
+    .document main > section + section { margin-top: 48px; }
     .outline { max-width: 74ch; margin: 0 auto; min-width: 0; }
     .outline h2 { font-size: 21px; font-weight: 600; line-height: 1.4; margin: 0 0 20px; text-align: center; }
-    .outline section + section { margin-top: 48px; }
+    .pain-group h3 { margin: 28px 0 10px; font-size: 17px; font-weight: 600; line-height: 1.4; }
     .outline p { margin: 0 0 18px; }
     .outline ul, .outline ol { margin: 0 0 20px; padding-left: 24px; }
     .outline li { margin: 5px 0; }
@@ -21,12 +22,12 @@
     .outline table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 15px; }
     .outline th, .outline td { text-align: left; padding: 10px 8px; vertical-align: top; border-bottom: 1px solid #ddd; }
     .outline th:first-child, .outline td:first-child { padding-left: 0; }
-    .wireframes { position: sticky; top: 32px; min-width: 0; text-align: left; }
+    .wireframes { width: 100%; max-width: 1440px; margin: 0 auto; min-width: 0; text-align: left; }
     .wireframes > h2 { font: 600 21px/1.4 Arial, Helvetica, sans-serif; margin: 0 0 20px; text-align: center; }
+    .implementation-note { margin-top: 48px; }
     @media (max-width: 1160px) {
-      .document { display: block; max-width: 1080px; padding-top: 32px; }
+      .document { max-width: 1080px; padding-top: 32px; }
       .outline { max-width: 76ch; }
-      .wireframes { position: static; margin-top: 48px; }
     }
     @media (max-width: 480px) {
       body { font-size: 15px; }
@@ -34,181 +35,104 @@
       .outline table { font-size: 14px; }
     }
     @media print {
-      .document { display: block; max-width: none; padding: 0; }
+      .document { max-width: none; padding: 0; }
       .outline { max-width: none; }
-      .wireframes { position: static; margin-top: 32px; break-before: page; }
+      .wireframes { break-before: page; }
     }
   </style>
 </head>
 <body>
   <div class="document">
-    <main class="outline">
-      <section>
-        <h2>Customer pain points</h2>
+    <main>
+      <section class="outline" aria-labelledby="pain-points-heading">
+        <h2 id="pain-points-heading">Customer pain points</h2>
         <p>Consolidated from your <a href="https://github.com/B-a-1-a/agentic-ai-browser-agent-r-d/blob/main/Research/Product/browser-agent-market-and-customer-needs/customer-needs-synthesis.md">customer-needs research</a> and notes:</p>
-        <ul>
-          <li>Tedious, repetitive browser work.</li>
-          <li>Copying information between disconnected web apps.</li>
-          <li>Re-entering information from local files into online forms.</li>
-          <li>Manually checking websites for changes.</li>
-          <li>Repeated alerts without meaningful changes.</li>
-          <li>Repeating instructions for recurring tasks.</li>
-          <li>Relearning workarounds that previously succeeded.</li>
-          <li>Unclear use cases and confusing starting experiences.</li>
-          <li>Complicated setup and workflow builders.</li>
-          <li>Broken connections and frequent disconnections.</li>
-          <li>Lost sessions, task history, and unfinished work.</li>
-          <li>Having to restart work that cannot be resumed.</li>
-          <li>Tasks using the wrong tabs, accounts, or context.</li>
-          <li>Agents interrupting normal browser use.</li>
-          <li>Having to watch and repeatedly check agents.</li>
-          <li>Excessive, difficult-to-understand approval prompts.</li>
-          <li>Unwanted submissions, messages, purchases, or deletions.</li>
-          <li>Incorrect or incomplete work reported as successful.</li>
-          <li>Little visibility into agent activity.</li>
-          <li>Missing proof of completion.</li>
-          <li>Slow task execution.</li>
-          <li>Login, two-factor authentication, CAPTCHA, and bot-protection barriers.</li>
-          <li>Account restrictions caused by automation.</li>
-          <li>Unpredictable costs and surprise bills.</li>
-          <li>Paying for failed or incorrect runs.</li>
-          <li>Paying again despite an existing AI subscription.</li>
-          <li>Usage limits interrupting tasks.</li>
-          <li>Changing credits, pricing, and plan entitlements.</li>
-          <li>Exposure of sensitive information.</li>
-          <li>Unsafe behavior caused by malicious webpage instructions.</li>
-          <li>Forced browser switching and disrupted browsing habits.</li>
-          <li>Losing workflows when vendors change or discontinue products.</li>
-          <li>Difficulty turning research into usable files, tables, or digests.</li>
-          <li>Limited accessibility, platform support, and regional availability.</li>
-        </ul>
-        <p>Additional pain hypotheses from your notes:</p>
-        <ul>
-          <li>Fragmented management across AI providers.</li>
-          <li>Difficulty maintaining reusable, purpose-specific task profiles.</li>
-          <li>Unnecessary refusals interrupting legitimate work.</li>
-        </ul>
+        <div class="pain-group">
+          <h3>Repetitive work and lost learning</h3>
+          <ul>
+            <li>Tedious, repetitive browser work.</li>
+            <li>Copying information between disconnected web apps.</li>
+            <li>Re-entering information from local files into online forms.</li>
+            <li>Manually checking websites for changes.</li>
+            <li>Repeated alerts without meaningful changes.</li>
+            <li>Repeating instructions for recurring tasks.</li>
+            <li>Relearning workarounds that previously succeeded.</li>
+          </ul>
+        </div>
+        <div class="pain-group">
+          <h3>Setup, access, and dependence on tools</h3>
+          <ul>
+            <li>Unclear use cases and confusing starting experiences.</li>
+            <li>Complicated setup and workflow builders.</li>
+            <li>Forced browser switching and disrupted browsing habits.</li>
+            <li>Losing workflows when vendors change or discontinue products.</li>
+            <li>Limited accessibility, platform support, and regional availability.</li>
+          </ul>
+        </div>
+        <div class="pain-group">
+          <h3>Barriers that stop agents</h3>
+          <ul>
+            <li>Login, two-factor authentication, CAPTCHA, and bot-protection barriers.</li>
+            <li>Account restrictions caused by automation.</li>
+          </ul>
+        </div>
+        <div class="pain-group">
+          <h3>Reliability and task context</h3>
+          <ul>
+            <li>Broken connections and frequent disconnections.</li>
+            <li>Lost sessions, task history, and unfinished work.</li>
+            <li>Having to restart work that cannot be resumed.</li>
+            <li>Tasks using the wrong tabs, accounts, or context.</li>
+          </ul>
+        </div>
+        <div class="pain-group">
+          <h3>Oversight and control</h3>
+          <ul>
+            <li>Agents interrupting normal browser use.</li>
+            <li>Having to watch and repeatedly check agents.</li>
+            <li>Excessive, difficult-to-understand approval prompts.</li>
+            <li>Unwanted submissions, messages, purchases, or deletions.</li>
+          </ul>
+        </div>
+        <div class="pain-group">
+          <h3>Trust and usable results</h3>
+          <ul>
+            <li>Incorrect or incomplete work reported as successful.</li>
+            <li>Little visibility into agent activity.</li>
+            <li>Missing proof of completion.</li>
+            <li>Difficulty turning research into usable files, tables, or digests.</li>
+          </ul>
+        </div>
+        <div class="pain-group">
+          <h3>Speed, costs, and usage limits</h3>
+          <ul>
+            <li>Slow task execution.</li>
+            <li>Unpredictable costs and surprise bills.</li>
+            <li>Paying for failed or incorrect runs.</li>
+            <li>Paying again despite an existing AI subscription.</li>
+            <li>Usage limits interrupting tasks.</li>
+            <li>Changing credits, pricing, and plan entitlements.</li>
+          </ul>
+        </div>
+        <div class="pain-group">
+          <h3>Privacy and security</h3>
+          <ul>
+            <li>Exposure of sensitive information.</li>
+            <li>Unsafe behavior caused by malicious webpage instructions.</li>
+          </ul>
+        </div>
+        <div class="pain-group">
+          <h3>Additional pain hypotheses from your notes</h3>
+          <ul>
+            <li>Fragmented management across AI providers.</li>
+            <li>Difficulty maintaining reusable, purpose-specific task profiles.</li>
+            <li>Unnecessary refusals interrupting legitimate work.</li>
+          </ul>
+        </div>
       </section>
 
-      <section>
-        <h2>Feature list, in the order users encounter it</h2>
-        <ol class="features">
-          <li><strong>First launch: connect existing tools</strong>
-            <ul>
-              <li>Connect supported agents using existing subscriptions.</li>
-              <li>Create a built-in browser profile and sign into websites inside the app.</li>
-              <li>Grant optional folder access.</li>
-              <li>Check connection health; reconnect when needed.</li>
-            </ul>
-          </li>
-          <li><strong>Home: organize work</strong>
-            <ul>
-              <li>Create workspaces/projects.</li>
-              <li>View tasks, recent results, and running work.</li>
-              <li>Open a shared <strong>Needs you</strong> inbox.</li>
-              <li>Start from templates for admin, personal productivity, and study.</li>
-            </ul>
-          </li>
-          <li><strong>Workspace setup: establish reusable context</strong>
-            <ul>
-              <li>Save task profiles containing instructions, preferences, and reference files.</li>
-              <li>Select persistent built-in browser profiles containing signed-in accounts.</li>
-              <li>Set default permissions for websites, files, and actions.</li>
-              <li>Keep task conversations and context separate.</li>
-            </ul>
-          </li>
-          <li><strong>New task: describe the desired outcome</strong>
-            <ul>
-              <li>Enter a request or choose a saved task profile.</li>
-              <li>Attach files, pages, and relevant context.</li>
-              <li>Choose the lead agent, model, and available execution options.</li>
-              <li>Choose <strong>Ask</strong>, <strong>Auto within rules</strong>, or <strong>Custom</strong> permissions.</li>
-              <li>Choose where generated files should be saved.</li>
-            </ul>
-          </li>
-          <li><strong>Plan review: agree on execution</strong>
-            <ul>
-              <li>Automatically propose steps and browser workers.</li>
-              <li>Edit the plan; add, remove, or override workers.</li>
-              <li>Set concurrency, usage budgets, and stopping conditions.</li>
-              <li>Show provider-reported usage and clearly labeled estimates where available.</li>
-              <li>Enforce permissions in the app, independently of model instructions.</li>
-            </ul>
-          </li>
-          <li><strong>Task workspace: coordinate the work</strong>
-            <ul>
-              <li>One shared task conversation.</li>
-              <li>A grid of browser workers with previews, activity, and status.</li>
-              <li>Expand a worker to inspect its built-in browser tab, instructions, and activity.</li>
-              <li>Add workers or change their assigned agent/model.</li>
-              <li>Read, create, edit, and save local files.</li>
-              <li>Run tasks in the background; coordinate conflicting account actions.</li>
-              <li>Pause, resume, stop a task, or stop all work.</li>
-              <li>Retry/reconnect failed workers; queue work when usage limits are reached.</li>
-            </ul>
-          </li>
-          <li><strong>Intervention: act when needed</strong>
-            <ul>
-              <li>Review the exact destination, content, attachments, and proposed action.</li>
-              <li>Approve individually or in a clearly scoped batch.</li>
-              <li>Override workspace permissions for a particular task.</li>
-              <li>Take over the built-in browser for login, CAPTCHA, or other blockers, then resume.</li>
-              <li>Notify users about meaningful changes, completion, failures, and required action.</li>
-            </ul>
-          </li>
-          <li><strong>Results: verify the outcome</strong>
-            <ul>
-              <li>Separate <strong>Results</strong> view.</li>
-              <li>Completed, blocked, skipped, and failed items.</li>
-              <li>Confirmation evidence, screenshots, source links, and submitted fields.</li>
-              <li>Deliverables, action history, checkpoints, and recovery options.</li>
-              <li>Duration and usage information where measurable.</li>
-            </ul>
-          </li>
-          <li><strong>Reuse: turn successful work into a routine</strong>
-            <ul>
-              <li>Save a completed task as a reusable workflow.</li>
-              <li>Run it again with new inputs.</li>
-              <li>Schedule recurring work and meaningful-change alerts.</li>
-              <li>Export/import portable instructions and workflow definitions.</li>
-            </ul>
-          </li>
-        </ol>
-        <p>For a local desktop version, scheduled work requires the app to be running and the computer awake.</p>
-        <p>I’d keep <strong>teaching by demonstration, automatic model routing, VPN/proxy settings, and automatic CAPTCHA handling</strong> as later explorations. The initial blocker flow should support human takeover.</p>
-      </section>
-
-      <section>
-        <h2>Typical user journey: job applications</h2>
-        <ol>
-          <li>Connect an existing agent subscription, create a built-in browser profile, and sign into job websites inside the app.</li>
-          <li>Create <strong>Job Applications</strong>, add a resume, and save role preferences.</li>
-          <li>Request: “Find today’s matching jobs and prepare applications.”</li>
-          <li>Review the proposed plan and workers; keep submission approval enabled.</li>
-          <li>Workers find roles, compare requirements, and prepare applications in parallel.</li>
-          <li>Take over a blocked portal inside the app to sign in, then return control.</li>
-          <li>Review prepared applications and approve selected submissions.</li>
-          <li>Inspect confirmations and unfinished items in <strong>Results</strong>.</li>
-          <li>Save the task as a weekday routine.</li>
-        </ol>
-      </section>
-
-      <section>
-        <h2>Browser recommendation</h2>
-        <p>Here, “built-in browser” means an app-managed browser used for agent work; it would not have to replace the user’s everyday browser.</p>
-        <table>
-          <thead><tr><th>Approach</th><th>Pros</th><th>Cons</th></tr></thead>
-          <tbody>
-            <tr><td><strong>App-managed built-in browser</strong></td><td>Consistent in-app control; easier management of separate browser profiles; more control over browser lifecycle.</td><td>Additional sign-ins and migration friction; larger maintenance burden; responsibility for shipping browser security updates.</td></tr>
-            <tr><td><strong>Connect to the existing browser</strong></td><td>Reuses signed-in sessions; familiar accounts and extensions; less migration; browser vendor handles browser updates.</td><td>Connection and permission setup; shared account state; interference from user changes; interruptions if the browser closes.</td></tr>
-          </tbody>
-        </table>
-        <p><strong>Let’s use T3’s built-in browser.</strong> Users create browser profiles and sign into websites inside the app. Workers use tabs belonging to those profiles. Clicking a tile opens its browser; takeover happens inside the app.</p>
-        <p>Supported cookie import can reduce setup, although some websites require another sign-in. Workers sharing a profile also share account state.</p>
-      </section>
-    </main>
-    <aside class="wireframes" aria-label="Wireframes">
-      <h2>Wireframes</h2>
+    <section class="wireframes" aria-labelledby="wireframes-heading">
+      <h2 id="wireframes-heading">Wireframes</h2>
       <div id="ao-wireframes" aria-label="Agent orchestrator wireframes">
   <style>
     #ao-wireframes { color-scheme: light dark; --ao-bg:light-dark(#ffffff,#17191d); --ao-soft:light-dark(#f5f5f4,#22252a); --ao-text:light-dark(#242424,#ededeb); --ao-muted:light-dark(#666662,#b5b7ba); --ao-line:light-dark(#d3d3ce,#4a4d52); --ao-strong:light-dark(#292b2e,#e9e9e5); --ao-on-strong:light-dark(#ffffff,#17191d); --ao-shade:light-dark(#00000042,#00000099); font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.45; color:var(--ao-text); }
@@ -572,7 +496,136 @@
   </script>
 </div>
 
-    </aside>
+    </section>
+
+      <section class="outline">
+        <h2>Feature list, in the order users encounter it</h2>
+        <ol class="features">
+          <li><strong>First launch: connect existing tools</strong>
+            <ul>
+              <li>Connect supported agents using existing subscriptions.</li>
+              <li>Create a built-in browser profile and sign into websites inside the app.</li>
+              <li>Grant optional folder access.</li>
+              <li>Check connection health; reconnect when needed.</li>
+            </ul>
+          </li>
+          <li><strong>Home: organize work</strong>
+            <ul>
+              <li>Create workspaces/projects.</li>
+              <li>View tasks, recent results, and running work.</li>
+              <li>Open a shared <strong>Needs you</strong> inbox.</li>
+              <li>Start from templates for admin, personal productivity, and study.</li>
+            </ul>
+          </li>
+          <li><strong>Workspace setup: establish reusable context</strong>
+            <ul>
+              <li>Save task profiles containing instructions, preferences, and reference files.</li>
+              <li>Select persistent built-in browser profiles containing signed-in accounts.</li>
+              <li>Set default permissions for websites, files, and actions.</li>
+              <li>Keep task conversations and context separate.</li>
+            </ul>
+          </li>
+          <li><strong>New task: describe the desired outcome</strong>
+            <ul>
+              <li>Enter a request or choose a saved task profile.</li>
+              <li>Attach files, pages, and relevant context.</li>
+              <li>Choose the lead agent, model, and available execution options.</li>
+              <li>Choose <strong>Ask</strong>, <strong>Auto within rules</strong>, or <strong>Custom</strong> permissions.</li>
+              <li>Choose where generated files should be saved.</li>
+            </ul>
+          </li>
+          <li><strong>Plan review: agree on execution</strong>
+            <ul>
+              <li>Automatically propose steps and browser workers.</li>
+              <li>Edit the plan; add, remove, or override workers.</li>
+              <li>Set concurrency, usage budgets, and stopping conditions.</li>
+              <li>Show provider-reported usage and clearly labeled estimates where available.</li>
+              <li>Enforce permissions in the app, independently of model instructions.</li>
+            </ul>
+          </li>
+          <li><strong>Task workspace: coordinate the work</strong>
+            <ul>
+              <li>One shared task conversation.</li>
+              <li>A grid of browser workers with previews, activity, and status.</li>
+              <li>Expand a worker to inspect its built-in browser tab, instructions, and activity.</li>
+              <li>Add workers or change their assigned agent/model.</li>
+              <li>Read, create, edit, and save local files.</li>
+              <li>Run tasks in the background; coordinate conflicting account actions.</li>
+              <li>Pause, resume, stop a task, or stop all work.</li>
+              <li>Retry/reconnect failed workers; queue work when usage limits are reached.</li>
+            </ul>
+          </li>
+          <li><strong>Intervention: act when needed</strong>
+            <ul>
+              <li>Review the exact destination, content, attachments, and proposed action.</li>
+              <li>Approve individually or in a clearly scoped batch.</li>
+              <li>Override workspace permissions for a particular task.</li>
+              <li>Take over the built-in browser for login, CAPTCHA, or other blockers, then resume.</li>
+              <li>Notify users about meaningful changes, completion, failures, and required action.</li>
+            </ul>
+          </li>
+          <li><strong>Results: verify the outcome</strong>
+            <ul>
+              <li>Separate <strong>Results</strong> view.</li>
+              <li>Completed, blocked, skipped, and failed items.</li>
+              <li>Confirmation evidence, screenshots, source links, and submitted fields.</li>
+              <li>Deliverables, action history, checkpoints, and recovery options.</li>
+              <li>Duration and usage information where measurable.</li>
+            </ul>
+          </li>
+          <li><strong>Reuse: turn successful work into a routine</strong>
+            <ul>
+              <li>Save a completed task as a reusable workflow.</li>
+              <li>Run it again with new inputs.</li>
+              <li>Schedule recurring work and meaningful-change alerts.</li>
+              <li>Export/import portable instructions and workflow definitions.</li>
+            </ul>
+          </li>
+        </ol>
+        <p>For a local desktop version, scheduled work requires the app to be running and the computer awake.</p>
+        <p>I’d keep <strong>teaching by demonstration, automatic model routing, VPN/proxy settings, and automatic CAPTCHA handling</strong> as later explorations. The initial blocker flow should support human takeover.</p>
+      </section>
+
+      <section class="outline">
+        <h2>Typical user journey: job applications</h2>
+        <ol>
+          <li>Connect an existing agent subscription, create a built-in browser profile, and sign into job websites inside the app.</li>
+          <li>Create <strong>Job Applications</strong>, add a resume, and save role preferences.</li>
+          <li>Request: “Find today’s matching jobs and prepare applications.”</li>
+          <li>Review the proposed plan and workers; keep submission approval enabled.</li>
+          <li>Workers find roles, compare requirements, and prepare applications in parallel.</li>
+          <li>Take over a blocked portal inside the app to sign in, then return control.</li>
+          <li>Review prepared applications and approve selected submissions.</li>
+          <li>Inspect confirmations and unfinished items in <strong>Results</strong>.</li>
+          <li>Save the task as a weekday routine.</li>
+        </ol>
+      </section>
+
+      <section class="outline">
+        <h2>Browser recommendation</h2>
+        <p>Here, “built-in browser” means an app-managed browser used for agent work; it would not have to replace the user’s everyday browser.</p>
+        <table>
+          <thead><tr><th>Approach</th><th>Pros</th><th>Cons</th></tr></thead>
+          <tbody>
+            <tr><td><strong>App-managed built-in browser</strong></td><td>Consistent in-app control; easier management of separate browser profiles; more control over browser lifecycle.</td><td>Additional sign-ins and migration friction; larger maintenance burden; responsibility for shipping browser security updates.</td></tr>
+            <tr><td><strong>Connect to the existing browser</strong></td><td>Reuses signed-in sessions; familiar accounts and extensions; less migration; browser vendor handles browser updates.</td><td>Connection and permission setup; shared account state; interference from user changes; interruptions if the browser closes.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Let’s use T3’s built-in browser.</strong> Users create browser profiles and sign into websites inside the app. Workers use tabs belonging to those profiles. Clicking a tile opens its browser; takeover happens inside the app.</p>
+        <p>Supported cookie import can reduce setup, although some websites require another sign-in. Workers sharing a profile also share account state.</p>
+      </section>
+
+    <section class="outline implementation-note" aria-labelledby="implementation-plan-heading">
+      <h2 id="implementation-plan-heading">Technical implementation plan</h2>
+      <ul>
+        <li><strong>Starting point:</strong> The source snapshot from <a href="https://github.com/pingdotgg/t3code/releases/tag/v0.1.2">T3 Code release v0.1.2</a>, manually copied into <a href="https://github.com/B-a-1-a/browser-agent">our repository</a> with attribution and upstream licensing preserved.</li>
+        <li><strong>Desktop and browser:</strong> Electron, React, and TypeScript. Reuse T3’s built-in browser, persistent signed-in profiles, browser control, and human takeover. Keep its existing Playwright/CDP connection initially.</li>
+        <li><strong>Agent runtime:</strong> Codex first through its supported subscription connection. Reuse T3’s provider adapters, persistent sessions, orchestration, delegation, and local file tools. Add reusable task profiles, a shared task conversation, browser-worker tiles, app-enforced permissions, and verified results.</li>
+        <li><strong>Stagehand:</strong> Evaluate <a href="https://docs.stagehand.dev/v4/integrations/cli-agents/overview">Stagehand v4</a> behind a replaceable browser-control interface. Its extension runtime is not a direct replacement for T3’s Electron browser connection. Measure compatibility, speed, and usage on our workflows before adoption.</li>
+        <li><strong>Step one — Bala:</strong> Validate and stabilize the inherited core, configure app identity and updates, establish permissions, and verify build and test tooling before contributors begin separate implementation issues.</li>
+      </ul>
+    </section>
+    </main>
   </div>
 </body>
 </html>
