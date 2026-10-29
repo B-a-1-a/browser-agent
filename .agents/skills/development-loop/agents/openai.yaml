@@ -1,0 +1,4 @@
+interface:
+  display_name: "Development Loop"
+  short_description: "Understand the code, make focused changes, verify results"
+  default_prompt: "Use $development-loop to implement this issue with appropriate tests and a concise handoff."

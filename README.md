@@ -27,3 +27,7 @@ The imported toolchain is Node **26.12.1** and pnpm **12.14.0**. See the [upstre
 ## Product outline
 
 [Product text and interactive wireframes](docs/design/product-outline.html)
+
+## Contributing
+
+Read the [contributor guide](CONTRIBUTING.md) for task claiming, dependencies, coordination, and review. The repo includes a [Development Loop skill](.agents/skills/development-loop/SKILL.md) for understanding the code, making focused changes, and testing the affected behavior. Invoke it with `$development-loop` in Codex, or reference the skill file in your coding tool.

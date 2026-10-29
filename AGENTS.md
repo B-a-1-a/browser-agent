@@ -1,5 +1,11 @@
 # T3 Code
 
+## Browser Agent collaboration
+
+This repository is Browser Agent, independently based on T3 Code. Use [CONTRIBUTING.md](CONTRIBUTING.md) for this project's task claiming, dependency gates, coordination, and review. The historical upstream guide in CONTRIBUTING.upstream.md is not this project's contribution policy.
+
+Use the [Development Loop skill](.agents/skills/development-loop/SKILL.md) for scoped implementation and verification. GitHub issues hold shared assignments and progress; personal agent memory does not grant task ownership. Keep the inherited technical constraints below while the owner validates the foundation.
+
 T3 Code is a minimal GUI for coding agents. A Node WebSocket server wraps provider CLIs and agents (Codex, Claude Code, Cursor, Grok, OpenCode, Antigravity) and serves web, desktop, and mobile clients.
 
 You can think of T3 Code as an open source "bring-your-own-subscription" alternative to apps like Claude Desktop, Codex App, Cursor Glass and Conductor.
