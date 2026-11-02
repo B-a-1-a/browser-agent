@@ -54,7 +54,9 @@ Add `--browser` to open a browser automatically.
 ### State and ports
 
 Linked worktrees default to their own `.t3/userdata`, even when `T3CODE_HOME` is set.
-The main checkout defaults to `~/.t3/dev/userdata`. An explicit `--home-dir` wins in both cases.
+The main checkout also uses its own `.t3/userdata`. Development ignores an ambient
+`T3CODE_HOME`; an explicit `--home-dir` wins. Seeding is off by default. `--seed`
+can copy from this product's `~/.browser-agent` state, never the installed T3 profile.
 Never run a development server against the live `~/.t3/userdata`.
 See [test data](../../AGENTS.md#test-data) for copying a consistent database snapshot.
 
@@ -226,7 +228,8 @@ The C toolchain, pkg-config, and libsecret headers are also needed for Linux des
 
 ### macOS DMG prerequisites
 
-Install the Xcode Command Line Tools with `xcode-select --install` and install Rust.
+Install the Xcode Command Line Tools with `xcode-select --install` and Rustup. The repository
+pins Rust **1.95.0** in `rust-toolchain.toml`; run `rustup show` from the checkout to install it.
 For a cross-architecture or universal build, add the requested Rust targets:
 
 ```sh

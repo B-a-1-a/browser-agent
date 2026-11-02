@@ -33,6 +33,15 @@ jobs:
           vp test run
           apps/desktop/scripts/verify-preload-bundle.test.mjs
           apps/desktop/scripts/electron-launcher.test.mjs
+          apps/desktop/scripts/dev-electron.test.mjs
+          apps/desktop/src/electron/ElectronProtocol.test.ts
+          apps/web/src/browser/hostedBrowserWebviewStyle.test.ts
+          packages/shared/src/providerAuthReturnUrl.test.ts
+          packages/shared/src/codexAuthHandoff.test.ts
+          packages/shared/src/promptLinks.test.ts
+          scripts/build-desktop-artifact.test.ts
+          scripts/dev-runner.test.ts
+          apps/server/src/os-jank.test.ts
           apps/desktop/src/app/DesktopUserData.test.ts
           apps/desktop/src/app/DesktopEnvironment.test.ts
           apps/desktop/src/app/DesktopAppIdentity.test.ts
