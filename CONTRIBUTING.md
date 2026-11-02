@@ -36,6 +36,8 @@ Read the implementation, related tests and contracts, and one existing example b
 
 The [Development Loop skill](.agents/skills/development-loop/SKILL.md) supports this process. Codex discovers it from `.agents/skills` when the repository is open. Invoke it with `$development-loop`. The existing `.claude/skills` link exposes the same files to Claude Code. In other tools, reference the SKILL.md file directly if skill discovery is unavailable.
 
+See [using the skill with different agents and models](docs/operations/ai-development.md) for T3 Code examples and handoffs.
+
 For example: “Use development-loop to implement issue #6. Respect its dependencies and scope, inspect the existing browser services, and verify the changed behavior.”
 
 Choose your own editor, agent, planning format, and development approach within the repository's technical requirements. This guide adds no mandatory planning files, commit frequency, or arbitrary change-size limits.
